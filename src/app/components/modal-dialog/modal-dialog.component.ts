@@ -23,7 +23,7 @@ export class ModalDialogComponent implements OnInit {
   myChart: any;
   supply: any;
   volume: any;
-
+  loader: boolean = false;
 
   constructor(private fb: FormBuilder, private dialogRef: MatDialogRef<ModalDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any, private currencyPipe: CurrencyPipe) {
@@ -42,6 +42,7 @@ export class ModalDialogComponent implements OnInit {
     }
 
     if (this.data.data.type === 'Details') {
+      this.loader = true;
       this.currentCoinDetails = this.data?.data?.rawCoinDetails.filter((coin: any) => coin.name === this.data.data.Coin.name)[0];
       this.supply = parseFloat(this.currentCoinDetails.supply).toLocaleString();
       this.volume = parseFloat(this.currentCoinDetails.volumeUsd24Hr).toLocaleString();
@@ -102,7 +103,7 @@ export class ModalDialogComponent implements OnInit {
               borderWidth: 1
           }]
       }
-
+      this.loader = false;
       });
     });
   }
