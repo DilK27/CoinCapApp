@@ -16,7 +16,6 @@ export class ModalDialogComponent implements OnInit {
   currentAmountOwned: any = '';
   form: FormGroup = this.fb.group({
     addorRemoveCoin: ['', [Validators.required]],
-    // chartTimeFrame: ['h1']
   });
   plotPoints: any;
   milliSecondPerDayConst: number = 86400000;
@@ -103,8 +102,8 @@ export class ModalDialogComponent implements OnInit {
               borderWidth: 1
           }]
       }
-      this.loader = false;
       });
+      this.loader = false;
     });
   }
 
