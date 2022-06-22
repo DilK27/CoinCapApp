@@ -5,7 +5,6 @@
         <mat-icon (click)="close()" matTooltip="Close">close</mat-icon>
     </span>
     </mat-card-title>
-    <!-- <mat-dialog-content> -->
         <div *ngIf="data.data.type !== 'Details'">
             <p class="title">{{currentAmountOwned}}</p>
             <mat-form-field class="center" appearance="fill">
@@ -58,5 +57,4 @@
                 </section>
             </div>
         </div>
-    <!-- </mat-dialog-content> -->
 </form>
