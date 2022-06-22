@@ -4,6 +4,8 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## First step
 Pull down the files and run `npm i`. This will install the dependencies. After installed, continue to the next section.
+Also make sure Nodejs version is 12 LTS or above to have stable 'worker-thread' support. I ran into an error (Cannot find module 'worker_threads'
+Error: Cannot find module 'worker_threads') that was running a old Nodejs version
 
 ## Development server
 
