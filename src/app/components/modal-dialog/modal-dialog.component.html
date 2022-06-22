@@ -7,7 +7,7 @@
     </mat-card-title>
         <div *ngIf="data.data.type !== 'Details'">
             <p class="title">{{currentAmountOwned}}</p>
-            <mat-form-field class="center" appearance="fill">
+            <mat-form-field class="inputCenter" appearance="fill">
                 <mat-label *ngIf="data.data.type === 'Add'">Enter a number to add</mat-label>
                 <mat-label *ngIf="data.data.type === 'Remove'">Enter a number to remove</mat-label>
                 <input matInput type="number" formControlName="addorRemoveCoin">
@@ -41,16 +41,16 @@
                     <div class="row">
                         <div class="col-lg">
                             <mat-list>
-                                <mat-list-item> Current Price: {{data.data.Coin.price}} </mat-list-item>
-                                <mat-list-item> Market Cap: {{data.data.Coin.marketCap}} </mat-list-item>
-                                <mat-list-item> Supply: {{data.data.Coin.supply}}</mat-list-item>
+                                <mat-list-item> <b>Current Price:</b> &nbsp; {{data.data.Coin.price}} </mat-list-item>
+                                <mat-list-item> <b>Market Cap:</b> &nbsp; {{data.data.Coin.marketCap}} </mat-list-item>
+                                <mat-list-item> <b>Supply:</b> &nbsp; {{data.data.Coin.supply}}</mat-list-item>
                                </mat-list>
                         </div>
                         <div class="col-lg">
                             <mat-list>
-                                <mat-list-item> Symbol: {{data.data.Coin.symbol}} </mat-list-item>
-                                <mat-list-item> Last 24 Hour VWAP:  {{data.data.Coin.vwap}}</mat-list-item>
-                                <mat-list-item> Last 24 Hour Volume: {{data.data.Coin.volume}} </mat-list-item>
+                                <mat-list-item> <b>Symbol:</b> &nbsp; {{data.data.Coin.symbol}} </mat-list-item>
+                                <mat-list-item> <b>Last 24 Hour VWAP:</b> &nbsp;  {{data.data.Coin.vwap}}</mat-list-item>
+                                <mat-list-item> <b>Last 24 Hour Volume:</b> &nbsp; {{data.data.Coin.volume}} </mat-list-item>
                                </mat-list>
                         </div>
                     </div>
