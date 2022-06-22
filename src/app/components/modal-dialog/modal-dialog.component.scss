@@ -16,10 +16,6 @@ section {
     padding-top: 1rem;
 }
 
-.center {
-    padding-left: 5rem;
-}
-
 .block {
     display: block;
     padding-bottom: 1rem ;
@@ -28,4 +24,10 @@ section {
 .fl-left {
     float: right;
     cursor: pointer;
+}
+
+.inputCenter {
+    margin: auto;
+    display: block;
+    width: 75%;
 }
