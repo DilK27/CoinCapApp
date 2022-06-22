@@ -29,32 +29,34 @@
                 <canvas id="myChart"></canvas>
                 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
             </div>
-            <section>
-                <div>Choose a Timeframe: </div>
-                <button mat-button (click)="getCoinChartData(data?.data?.Coin, 'h1')">1 Hour</button>
-                <button mat-button (click)="getCoinChartData(data?.data?.Coin, 'd1')">1 Day</button>
-                <button mat-button (click)="getCoinChartData(data?.data?.Coin, 'w1')">1 Week</button>
-                <button mat-button (click)="getCoinChartData(data?.data?.Coin, 'm1')">1 Month</button>
-            </section>
+            <div *ngIf="!loader">
+                <section>
+                    <div>Choose a Timeframe: </div>
+                    <button mat-button (click)="getCoinChartData(data?.data?.Coin, 'h1')">1 Hour</button>
+                    <button mat-button (click)="getCoinChartData(data?.data?.Coin, 'd1')">1 Day</button>
+                    <button mat-button (click)="getCoinChartData(data?.data?.Coin, 'w1')">1 Week</button>
+                    <button mat-button (click)="getCoinChartData(data?.data?.Coin, 'm1')">1 Month</button>
+                </section>
 
-            <section>
-                <div class="row">
-                    <div class="col-lg">
-                        <mat-list>
-                            <mat-list-item> Current Price: {{data.data.Coin.price}} </mat-list-item>
-                            <mat-list-item> Market Cap: {{data.data.Coin.marketCap}} </mat-list-item>
-                            <mat-list-item> Supply: {{data.data.Coin.supply}}</mat-list-item>
-                           </mat-list>
+                <section>
+                    <div class="row">
+                        <div class="col-lg">
+                            <mat-list>
+                                <mat-list-item> Current Price: {{data.data.Coin.price}} </mat-list-item>
+                                <mat-list-item> Market Cap: {{data.data.Coin.marketCap}} </mat-list-item>
+                                <mat-list-item> Supply: {{data.data.Coin.supply}}</mat-list-item>
+                               </mat-list>
+                        </div>
+                        <div class="col-lg">
+                            <mat-list>
+                                <mat-list-item> Symbol: {{data.data.Coin.symbol}} </mat-list-item>
+                                <mat-list-item> Last 24 Hour VWAP:  {{data.data.Coin.vwap}}</mat-list-item>
+                                <mat-list-item> Last 24 Hour Volume: {{data.data.Coin.volume}} </mat-list-item>
+                               </mat-list>
+                        </div>
                     </div>
-                    <div class="col-lg">
-                        <mat-list>
-                            <mat-list-item> Symbol: {{data.data.Coin.symbol}} </mat-list-item>
-                            <mat-list-item> Last 24 Hour VWAP:  {{data.data.Coin.vwap}}</mat-list-item>
-                            <mat-list-item> Last 24 Hour Volume: {{data.data.Coin.volume}} </mat-list-item>
-                           </mat-list>
-                    </div>
-                </div>
-            </section>
+                </section>
+            </div>
         </div>
     <!-- </mat-dialog-content> -->
 </form>
