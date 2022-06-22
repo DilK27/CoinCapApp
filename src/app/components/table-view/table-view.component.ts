@@ -98,20 +98,15 @@ export class TableViewComponent implements OnInit {
   viewCoinDetails(coin: any) {
     const params = new MatDialogConfig();
     params.data = { Coin: coin, rawCoinDetails: this.rawCoinAssesDataArr, type: 'Details' };
-    const dialogRef = this.dialogRef.open(ModalDialogComponent, { height: '80%', width: '80%', data: params });
-    // POPUP MODAL TO VIEW COIN DETAILS
-
-    dialogRef.afterClosed().subscribe((result) => {
-    })
+    const dialogRef = this.dialogRef.open(ModalDialogComponent, { height: '85%', width: '80%', data: params });
   }
 
   addCoinToWallet(coin: any) {
     const params = new MatDialogConfig();
     params.data = { Coin: coin, type: 'Add' };
-    const dialogRef = this.dialogRef.open(ModalDialogComponent, { height: '15%', width: '25%', data: params });
+    const dialogRef = this.dialogRef.open(ModalDialogComponent, { height: '22%', width: '25%', data: params });
 
     dialogRef.afterClosed().subscribe((result) => {
-      // const currentRate = this.getCurrentRates(coin, result);
       if (result) {
         if (coin.amountOwned === 0) {
           this.walletArr.push(coin);
@@ -138,7 +133,7 @@ export class TableViewComponent implements OnInit {
   remiveCoinFromWallet(coin: any) {
     const params = new MatDialogConfig();
     params.data = { Coin: coin, type: 'Remove' };
-    const dialogRef = this.dialogRef.open(ModalDialogComponent, { height: '20%', width: '25%', data: params });
+    const dialogRef = this.dialogRef.open(ModalDialogComponent, { height: '22%', width: '25%', data: params });
 
 
     dialogRef.afterClosed().subscribe((result) => {
@@ -155,7 +150,6 @@ export class TableViewComponent implements OnInit {
   }
 
   getBalance() {
-    //TOOD get balance of wallet
     return `${this.currencyPipe.transform(this.personalBalance)}`
   }
 
