@@ -1,0 +1,60 @@
+<form [formGroup]="form">
+    <mat-card-title class="title">
+        {{title}}
+    <span class="fl-left" *ngIf="data.data.type === 'Details'">
+        <mat-icon (click)="close()" matTooltip="Close">close</mat-icon>
+    </span>
+    </mat-card-title>
+    <!-- <mat-dialog-content> -->
+        <div *ngIf="data.data.type !== 'Details'">
+            <p class="title">{{currentAmountOwned}}</p>
+            <mat-form-field class="center" appearance="fill">
+                <mat-label *ngIf="data.data.type === 'Add'">Enter a number to add</mat-label>
+                <mat-label *ngIf="data.data.type === 'Remove'">Enter a number to remove</mat-label>
+                <input matInput type="number" formControlName="addorRemoveCoin">
+                <mat-error *ngIf="form.get('addorRemoveCoin')?.errors?.['required']">Please enter a value</mat-error>
+                <mat-error *ngIf="form.get('addorRemoveCoin')?.errors?.['invalidInput']">Cannot remove more coins than
+                    owned</mat-error>
+            </mat-form-field>
+            <mat-dialog-actions>
+                <button *ngIf="data.data.type === 'Add'" [disabled]="form.get('addorRemoveCoin')?.errors"
+                    mat-raised-button color="primary" (click)="addOrRemoveFromWallet()">Add</button>
+                <button *ngIf="data.data.type === 'Remove'" [disabled]="form.get('addorRemoveCoin')?.errors"
+                    mat-raised-button color="primary" (click)="addOrRemoveFromWallet()">Remove</button>
+                <button mat-stroked-button (click)="close()">Close</button>
+            </mat-dialog-actions>
+        </div>
+        <div *ngIf="data.data.type === 'Details'">
+            <div class="block">
+                <canvas id="myChart"></canvas>
+                <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+            </div>
+            <section>
+                <div>Choose a Timeframe: </div>
+                <button mat-button (click)="getCoinChartData(data?.data?.Coin, 'h1')">1 Hour</button>
+                <button mat-button (click)="getCoinChartData(data?.data?.Coin, 'd1')">1 Day</button>
+                <button mat-button (click)="getCoinChartData(data?.data?.Coin, 'w1')">1 Week</button>
+                <button mat-button (click)="getCoinChartData(data?.data?.Coin, 'm1')">1 Month</button>
+            </section>
+
+            <section>
+                <div class="row">
+                    <div class="col-lg">
+                        <mat-list>
+                            <mat-list-item> Current Price: {{data.data.Coin.price}} </mat-list-item>
+                            <mat-list-item> Market Cap: {{data.data.Coin.marketCap}} </mat-list-item>
+                            <mat-list-item> Supply: {{data.data.Coin.supply}}</mat-list-item>
+                           </mat-list>
+                    </div>
+                    <div class="col-lg">
+                        <mat-list>
+                            <mat-list-item> Symbol: {{data.data.Coin.symbol}} </mat-list-item>
+                            <mat-list-item> Last 24 Hour VWAP:  {{data.data.Coin.vwap}}</mat-list-item>
+                            <mat-list-item> Last 24 Hour Volume: {{data.data.Coin.volume}} </mat-list-item>
+                           </mat-list>
+                    </div>
+                </div>
+            </section>
+        </div>
+    <!-- </mat-dialog-content> -->
+</form>
